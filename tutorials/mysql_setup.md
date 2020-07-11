@@ -30,7 +30,13 @@ USE mysql;
 # Remember to change 'somePassword' below to be a unique password specific to this account.
 CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY 'somePassword';
 ```
+### Note
+Sometimes when the server has an error saying something like "caching_sha2_password" then you will need to alter the account that you have created.
+For example we will use the username above. It will fix the issue that is accuring.
 
+```
+ALTER USER 'pterodactyl'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY 'somePassword';
+```
 ### Create a database
 Next, we need to create a database for the panel. In this tutorial we will be naming the database `panel`, but you can
 substitute that for whatever name you wish.
